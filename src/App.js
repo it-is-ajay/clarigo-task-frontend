@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route, Routes } from "react-router-dom";
+import DashboardPage from './pages/Dashboard';
+import UserDashboard from './pages/UserDashboard'
+import LoginPage from './pages/Auth/Login';
+import SignUpPage from './pages/Auth/SignUp';
+import { ToastContainer } from "react-toastify";
+import PrivateLayout from "./layout/private.layout";
+import PublicLayout from "./layout/public.layout";
+import PrivateLayoutAdmin from './layout/private.layout.admin'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <>
+    <Routes>
+      <Route path="/" element={
+        <PrivateLayout>
+          <UserDashboard />
+        </PrivateLayout>
+      } />
+
+      <Route path="/admin-dashboard" element={
+        <PrivateLayoutAdmin>
+          <DashboardPage />
+        </PrivateLayoutAdmin>
+      } />
+
+      <Route path="/login" element={
+        <PublicLayout>
+          <LoginPage />
+        </PublicLayout>
+      } />
+      <Route path="/signup" element={
+        <PublicLayout>
+          <SignUpPage />
+        </PublicLayout>
+      } />
+    </Routes>
+    <ToastContainer />
+  </>
 }
 
 export default App;
