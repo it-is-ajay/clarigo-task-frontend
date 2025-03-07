@@ -46,7 +46,7 @@ export default function login({
                                     {errors.email && touched.email && errors.email}
                                 </span>
                                 <input
-                                    type="text"
+                                    type="password"
                                     name="password"
                                     onChange={handleChange}
                                     onBlur={handleBlur}

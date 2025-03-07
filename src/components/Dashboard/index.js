@@ -247,7 +247,7 @@ export default function Dashboard({
                                 </span>
 
                                 <input
-                                    type="text"
+                                    type="password"
                                     name="password"
                                     onChange={handleChange}
                                     onBlur={handleBlur}

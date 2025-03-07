@@ -89,7 +89,7 @@ export default function SignUp({
                                 </span>
 
                                 <input
-                                    type="text"
+                                    type="password"
                                     name="password"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
